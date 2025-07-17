@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: Apache-2.0
+title: Custom Blinky LED Binding
+
+description: Custom binding for a GPIO-controlled LED with a configurable blink delay
+
+compatible: "es,led-gpio"
+
+# include: [base.yaml, gpio-controller.yaml]
+include: [base.yaml]
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: GPIO specifier for the LED
+
+  label:
+    type: string
+    # required: true
+
+  blink-delay-ms:
+    type: int
+    required: true
+    description: Delay time in milliseconds between LED toggles

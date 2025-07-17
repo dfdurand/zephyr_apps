@@ -1,0 +1,15 @@
+/ {
+    leds: leds {
+
+        green_led_0: led_0 {
+            compatible = "es,led-gpio";
+            gpios = <&gpioa 5 GPIO_ACTIVE_HIGH>;
+            label = "User LED";
+            blink-delay-ms = <1000>;
+        };
+    };
+
+    aliases {
+		led0 = &green_led_0;
+	};
+};
