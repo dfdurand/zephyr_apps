@@ -1,0 +1,24 @@
+# Sample YAML configuration for the Kconfig application
+sample:
+  name: blinky with custom delay
+tests:
+  sample.kconfig.blinky:
+    tags:
+      - gpio
+    filter: dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
+    depends_on: gpio
+    harness: led
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+
+
+# west build -p -b nucleo_g071rb kconfig_app/
+# west build -p -b nrf52840dk/nrf52840 kconfig_app
+# GUI configuration:
+#  - cd zephyr_apps/kconfig_app
+#  - west build -p -b nucleo_g071rb -t menuconfig
+#  - west build -p -b nrf52840dk/nrf52840 -t menuconfig

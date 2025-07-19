@@ -1,0 +1,24 @@
+#Kconfig - Configuration file for the Hello World sample application
+config BUILD_APP
+    bool "Build the application"
+    default y
+    depends on SOC_STM32G071XX || SOC_NRF52840 || SOC_STM32F446XX
+    help
+      If enabled, the application will be built.
+      This is useful for testing and development purposes.
+
+config APP_BLINK_LED
+    bool "Enable LED blinking"
+    default y
+    help
+      If enabled, the application will blink the LED.
+
+config BLINK_DELAY
+    int "LED blink delay in milliseconds"
+    default 500
+    range 100 5000
+    help
+      Delay between LED toggles in milliseconds.
+
+
+source "Kconfig.zephyr"
