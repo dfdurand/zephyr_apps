@@ -1,0 +1,16 @@
+sample:
+  name: adc application sample using Zephyr ADC API
+  description: |
+    This sample demonstrates how to use the ADC API in Zephyr to read LM35DZ analog values
+    from a specified ADC channel. It configures the ADC, reads the value, and prints it
+    to the console.
+tests:
+  zephyr_apps.adc:
+    tags:
+      - adc
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
