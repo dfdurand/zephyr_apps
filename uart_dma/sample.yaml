@@ -1,0 +1,24 @@
+sample:
+  name: uart communication in async mode
+  description: |
+    This sample application demonstrates the use of UART with DMA in Zephyr.
+    It initializes the UART, sets up DMA for receiving and transmitting data, and handles UART events.
+    The application continuously receives data from the UART and transmits a predefined message.
+tests:
+  zephyr_apps.uart_async:
+    tags:
+      - serial
+      - uart
+    filter: CONFIG_UART_ASYNC_API and
+            dt_chosen_enabled("zephyr,shell-uart")
+    harness: keyboard
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+
+
+
+
