@@ -1,0 +1,27 @@
+sample:
+  description: this sample demonstrate how to configure and use spi com on stm32 boards
+  name: spi API sample 
+
+tests:
+  zephyr_apps.spi.sample:
+    tags:
+      - serial
+      - spi
+    filter: CONFIG_SPI
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+
+
+# west build -p -b nucleo_g071rb spi_sample
+# west build -p -b nrf52840dk/nrf52840 spi_sample
+
+nrf52840dk/nrf52840:
+  connection:
+   P1.13 -> P1.14 (loopback)
+nucleo_g071rb:
+  connection:
+   Arduino header pin 12 -> Arduino header pin 11 (loopback)

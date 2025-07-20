@@ -1,0 +1,4 @@
+&spi1 {
+	clock-frequency=<8000000>;	
+};
+
