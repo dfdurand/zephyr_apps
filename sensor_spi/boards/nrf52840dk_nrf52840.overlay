@@ -1,0 +1,12 @@
+&spi3 {
+	status = "okay";
+	pinctrl-0 = <&spi3_default>;
+	pinctrl-1 = <&spi3_sleep>;
+	pinctrl-names = "default", "sleep";
+	 mysensor: bme680@0 {
+        compatible = "bosch,bme680";
+        spi-max-frequency = <10000000>;
+        reg = <0>;  
+        label = "BME680";
+    };
+};
