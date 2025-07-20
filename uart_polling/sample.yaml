@@ -1,0 +1,20 @@
+sample:
+  name: uart communication in polling mode
+tests:
+  zephyr_apps.uart_polling:
+    tags:
+      - serial
+      - uart
+    filter: CONFIG_SERIAL and
+            dt_chosen_enabled("zephyr,shell-uart")
+    harness: keyboard
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+
+
+# west build -p -b nucleo_g071rb uart_polling
+# west build -p -b nrf52840dk/nrf52840 uart_polling
