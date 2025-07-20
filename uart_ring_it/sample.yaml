@@ -1,0 +1,21 @@
+# Sample YAML configuration for the Kconfig application
+sample:
+  name: uart communication in interrupt mode 2
+tests:
+  zephyr_apps.uart_ring_it:
+    tags:
+      - serial
+      - uart
+    filter: CONFIG_UART_INTERRUPT_DRIVEN and
+            dt_chosen_enabled("zephyr,shell-uart")
+    harness: keyboard
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+
+
+# west build -p -b nucleo_g071rb uart_ring_it
+# west build -p -b nrf52840dk/nrf52840 uart_ring_it
