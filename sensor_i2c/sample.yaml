@@ -1,0 +1,55 @@
+sample:
+  name: i2c communication with BME680 sensor 
+  description: |
+    This sample demonstrates how to communicate with a BME680 sensor over I2C.
+    It reads temperature data from the sensor.
+    The sample is designed to run on Nucleo F446RE and nRF52840 DK boards.
+tests:
+  zephyr_apps.i2c:
+    tags:
+      - i2c
+    integration_platforms:
+      - nucleo_f446re
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_f446re
+      - nrf52840dk/nrf52840
+
+
+# Connection to the Nucleo board
+Nucleo_f446re :
+# Connection to the Nucleo board
+  i2c1:
+    pullup:
+      SCL: GPIOB_8 #arduino D15
+      SDA: GPIOB_9 #arduino D14
+
+nrf52840dk :
+# Connection to the Nucleo board
+  i2c0:
+    pullup:
+      SCL: Port P1.14 #arduino D15
+      SDA: Port P1.15 #arduino D14
+  console:
+    /dev/ttyACM0-SEGGER
+
+
+# Connection to the BME680 sensor
+bme680:
+  i2c:
+    bus: I2C1
+    address: 0x77
+    SDO: # To GND (0x76) or VCC(0x77): 3.3V
+    SDA: # To arduino D14
+    SCL: # To arduino D15
+    VCC: VCC 5V
+    GND: GND
+
+build command:
+  west build -p -b nucleo_f446re sensor_i2c/ 
+  west build -p -b nrf52840dk/nrf52840 sensor_i2c
+
+flash command:
+  nrf52840dk/nrf52840: west flash -r jlink
+  nucleo_f446re : west flash
+

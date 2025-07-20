@@ -1,0 +1,7 @@
+&i2c1 {
+    mysensor: bme680@77 {
+        compatible = "bosch,bme680";
+        reg = <0x77>;  /* 0x76 or 0x77 depending on your sensor wiring */
+        label = "BME680";
+    };
+};
