@@ -1,0 +1,39 @@
+
+/{
+    model = "STMicroelectronics STM32G071RB-NUCLEO board";
+	compatible = "st,stm32g071rb-nucleo";
+    
+    leds: leds {
+        compatible = "gpio-leds";
+        white: led_0 {
+            gpios = <&gpioa 7 GPIO_ACTIVE_HIGH>;
+            label = " white led D11";
+        };
+    
+        green: led_1 {
+			gpios = <&gpiob 0 GPIO_ACTIVE_HIGH>;
+			label = "green led D10";
+		};
+        yellow: led_2 {
+           gpios = <&gpioc 7 GPIO_ACTIVE_HIGH>;
+            label = "yellow led D9";
+        };
+
+        red: led_3 {
+            gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>;
+            label = " red led D8";
+        };
+    };
+
+    aliases {
+        led0 = &white;
+        led1 = &green;
+        led2 = &yellow;
+        led3 = &red;
+    };
+};
+
+
+
+
+

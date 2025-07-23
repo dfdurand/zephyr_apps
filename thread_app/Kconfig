@@ -1,0 +1,13 @@
+config BUILD_MAIN_APP
+    bool "build main application"
+    default n
+    help
+        Build the main application.
+
+config BUILD_THREAD_APP
+    bool "build thread application"
+    default n
+    help
+        Build the Thread application.
+
+source "Kconfig.zephyr"
