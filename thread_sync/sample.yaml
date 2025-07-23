@@ -1,0 +1,19 @@
+# Sample configuration for a Thread synchronization application
+# mutexes and semaphores
+# This sample demonstrates the use of mutexes and semaphores in a Thread application.
+sample:
+  description: A Thread application demonstrating the use of mutexes and semaphores.
+  name: Thread synchronization sample
+tests:
+  sample.thread_app:
+    tags:
+      - gpio
+    integration_platforms:
+      - nrf52840dk/nrf52840
+      - nucleo_g071rb
+
+
+# west build -p -b nucleo_g071rb thread_sync/
+
+# west build -p -b nrf52840dk/nrf52840 thread_sync/
+# west flash --runner jlink  
