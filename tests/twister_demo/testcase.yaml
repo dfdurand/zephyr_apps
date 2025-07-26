@@ -21,7 +21,7 @@ tests:
     integration_platforms:
       - nucleo_g071rb
   twister_demo.nrf:
-    filter: dt_alias_enabled("led0") and dt_compat_enabled("nordic,nrf-gpio")
+    filter: dt_alias_exists("led0") and dt_compat_enabled("nordic,nrf-gpio")
     integration_platforms:
       - nrf52840dk/nrf52840
   twister_demo.fixture:
