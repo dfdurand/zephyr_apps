@@ -1,0 +1,42 @@
+common:
+  depends_on: gpio
+  tags:
+    - drivers
+    - gpio
+  harness: ztest
+tests:
+  twister_demo.ztest:
+    build_only: true
+    platform_allow: 
+      - native_sim
+  twister_demo.all_boards:
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+  twister_demo.stm32:
+    filter: dt_alias_exists("led0") and  CONFIG_SOC_FAMILY_STM32
+    integration_platforms:
+      - nucleo_g071rb
+  twister_demo.nrf:
+    filter: dt_alias_enabled("led0") and dt_compat_enabled("nordic,nrf-gpio")
+    integration_platforms:
+      - nrf52840dk/nrf52840
+  twister_demo.fixture:
+    harness_config:
+      fixture: uart_fixture
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    extra_configs:
+      - CONFIG_UART_ASYNC_API=y
+  twister_demo.conf_file:
+    harness_config:
+      fixture: i2c_fixture
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    extra_args: EXTRA_CONF_FILE="i2c_fixture_overlay.conf"
+
