@@ -1,0 +1,17 @@
+tests:
+  sample.testing.ztest:
+    platform_allow: 
+      - native_sim
+    tags: ztest
+
+
+
+
+
+
+
+
+
+# west build -p -b nucleo_g071rb  tests/test_app/
+# west build -p -b native_sim     tests/test_app/ -t run
+
