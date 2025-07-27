@@ -1,0 +1,28 @@
+- connected: true
+  fixtures:
+  - uart_fixture
+  - i2c_fixture
+  - spi_loopback
+  id: 001050235844
+  platform: nrf52840dk/nrf52840
+  product: J-Link
+  runner: jlink
+  serial: /dev/serial/by-id/usb-SEGGER_J-Link_001050235844-if00
+- connected: true
+  fixtures:
+  - uart_fixture
+  - i2c_fixture
+  - gpio_loopback
+  id: 066FFF343831524157043929
+  platform: nucleo_g071rb
+  product: STM32 STLink
+  runner: stm32cubeprogrammer
+  serial: /dev/serial/by-id/usb-STMicroelectronics_STM32_STLink_066FFF343831524157043929-if02
+- baud: 115200
+  connected: true
+  flash_timeout: 60
+  id: 001050235844
+  platform: unknown
+  product: J-Link
+  runner: jlink
+  serial: /dev/serial/by-id/usb-SEGGER_J-Link_001050235844-if02

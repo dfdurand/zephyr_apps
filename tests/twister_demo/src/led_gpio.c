@@ -61,7 +61,7 @@ ZTEST(led_suite, test_led_info)
     zassert_not_null(led.port->name, "LED port should not be NULL");
     // zassert_true(led.port->name != NULL, "LED port name should not be NULL");
     zassert_true(strcmp(led.port->name, "gpio@50000000") == 0, "Strings should be equal");
-    zassert_true(led.pin == 5, "LED pin should be valid");
+    zassert_true(led.pin == 13, "LED pin should be valid");
     zassert_false(led.dt_flags != 0, "LED dt_flags should be equal to zero");
     zassert_true(led.dt_flags == 0, "LED dt_flags should not be zero");
     printk("LED Info: Pin %d, Port %s, Flags %d\n",

@@ -47,7 +47,7 @@ ZTEST(math_suite, test_subtraction)
 ZTEST(math_suite, test_multiplication)
 {
     shared_counter *= 2;
-    zassert_equal(shared_counter, 160, "Multiplication logic failed");
+    zassert_equal(shared_counter, 200, "Multiplication logic failed");
 }
 
 
@@ -57,7 +57,7 @@ ZTEST(math_suite, test_division)
         ztest_test_skip();
     }
     shared_counter /= 2;
-    zassert_equal(shared_counter, 80, "Division logic failed");
+    zassert_equal(shared_counter, 50, "Division logic failed");
 }
 
 
