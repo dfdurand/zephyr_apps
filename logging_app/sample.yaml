@@ -1,0 +1,13 @@
+sample:
+  name: Zephyr Logging Sample
+  description: |
+    This sample demonstrates how to use logging subsystem for zephyr OS 
+  zephyr_apps.logging:
+    tags:
+      - logging
+    integration_platforms:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
+    platform_allow:
+      - nucleo_g071rb
+      - nrf52840dk/nrf52840
